@@ -1,0 +1,13 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "watch": true,
+        "strict": false,
+        "target": "ES6",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "esModuleInterop": false,
+        "allowSyntheticDefaultImports": true,
+        "lib": ["ESNext", "DOM"]
+    }
+}

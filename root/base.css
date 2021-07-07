@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend&family=Montserrat&family=Oswald:wght@240&family=Righteous&family=Varela+Round&display=swap');
+
+:root {
+    --background-color-p1: #161b29;
+    --background-color-p2: #080A0F;
+    --main-text-color: #ffffff;
+    --top-banner-caret-size: 40px;
+    --background-color-secondary: #ffffff;
+    --secondary-text-color: #000000;
+    --card-link-text-color: #57a5fd;
+    --primary-color-1: #ffd000;
+    --primary-color-2: #035ec7;
+    --primary-color-3: #c70375;
+    --card-color-1: #181F2F;
+    --card-border-color-1: #282F3F;
+    --card-text-color-1: #ffffff;
+    --card-color-2: var(--primary-color-1);
+    --card-border-color-2: #ffe159;
+    --card-text-color-2: #000000;
+    --card-color-3: var(--primary-color-2);
+    --card-border-color-3: #2480e9;
+    --card-text-color-3: #ffffff;
+    --card-color-4: var(--primary-color-3);
+    --card-border-color-4: #ee2098;
+    --card-text-color-4: #ffffff;
+    --anchor-text-color: #57a5fd;
+    --navbar-cell-background-color: #EFEFEF;
+    --navbar-cell-color: #000000;
+    --navbar-cell-hover-background-color: var(--primary-color-1);
+    --navbar-cell-hover-color: var(--card-text-color-1);
+    font-size: clamp(12px, 1vw, 32px);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, var(--background-color-p1), var(--background-color-p2));
+    color: var(--main-text-color);
+    font-family: 'Montserrat', sans-serif;
+}

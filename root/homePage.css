@@ -1,0 +1,472 @@
+@import url("/root/text-base.css");
+
+/*Main Window*/
+main.window {
+    display: grid;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+main.window > main.inverted {
+    background-color: var(--background-color-secondary);
+    color: var(--secondary-text-color);
+}
+
+/*Cropped Images*/
+img.cropped-circle {
+    clip-path: circle(50%);
+}
+
+/*Text Boxes*/
+main.text-box {
+    display: grid;
+
+    padding: 5px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+
+    padding: 20px;
+    font-weight: normal;
+}
+
+main.info-box-left {
+    grid-template-areas:
+    "icon title"
+    "icon content"
+    ;
+
+    grid-template-rows: 1fr 3fr;
+    grid-template-columns: 1fr 3fr;
+
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+main.image-list {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+    place-items: center;
+}
+
+main.image-list > div.image {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+main.info-box-left > div.icon {
+    grid-area: icon;
+
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main.info-box-left > div.title {
+    grid-area: title;
+
+    font-family: 'Lexend', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+main.info-box-left > div.content {
+    grid-area: content;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+/*Top Banner*/
+@keyframes showTopBannerArrow {
+    0% {
+        padding-bottom: var(--top-banner-caret-size);
+    }
+
+    50% {
+        padding-bottom: var(--top-banner-caret-size);
+    }
+
+    100% {
+        padding-bottom: 0;
+    }
+}
+
+main.top-banner {
+    display: grid;
+    gap: 5px;
+
+    grid-template-areas: 
+    "icon"
+    "title"
+    "subtext"
+    "see-more"
+    ;
+
+    grid-template-rows: 3fr 2fr 1fr 1fr;
+
+    background-color: white;
+    color: black;
+    font-family: 'Lexend', sans-serif;
+    font-size: 4rem;
+
+    height: 100vh;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, calc(50% + var(--top-banner-caret-size)) 100%, 50% calc(100% - var(--top-banner-caret-size)), calc(50% - var(--top-banner-caret-size)) 100%, 0% 100%, 0% 0%);
+    animation: showTopBannerArrow 3s linear 0s 1;
+}
+@media all and (min-width: 800px) {
+    main.top-banner {
+        display: grid;
+        gap: 5px;
+    
+        grid-template-areas: 
+        "icon title"
+        "icon subtext"
+        "see-more see-more"
+        ;
+    
+        grid-template-rows: 3fr 3fr 1fr;
+        grid-template-columns: 1fr 3fr;
+    
+        background-color: white;
+        color: black;
+        font-family: 'Lexend', sans-serif;
+        font-size: 4rem;
+    
+        height: 100vh;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, calc(50% + var(--top-banner-caret-size)) 100%, 50% calc(100% - var(--top-banner-caret-size)), calc(50% - var(--top-banner-caret-size)) 100%, 0% 100%, 0% 0%);
+        animation: showTopBannerArrow 6s ease-out 0s 1;
+    }
+}
+
+main.top-banner > div {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes hideElement {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes showTopBannerElement {
+    from {
+        opacity: 0;
+        position: relative;
+        top: 160px;
+    }
+
+    to {
+        opacity: 1;
+        position: relative;
+        top: 0;
+    }
+}
+
+@keyframes showTopBannerElementNoMove {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+main.top-banner > div.icon {
+    grid-area: icon;
+    padding: 0;
+
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    animation: showTopBannerElement 2s ease-out 1.5s 1, hideElement 1.5s linear 0s 1;
+}
+
+main.top-banner > div.icon > svg {
+    display: none;
+    width: clamp(320px, 35vw, 640px);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+svg > .stroke-color-bg1 {
+    stroke: var(--background-color-p1);
+}
+
+svg > .stroke-color-bg2 {
+    stroke: var(--background-color-p2);
+}
+
+svg > .stroke-color-l1 {
+    stroke: var(--main-text-color);
+}
+
+svg > .stroke-color-l2 {
+    stroke: var(--secondary-text-color);
+}
+
+svg > .stroke-color-1 {
+    stroke: var(--primary-color-1);
+}
+
+svg > .stroke-color-2 {
+    stroke: var(--primary-color-2);
+}
+
+svg > .stroke-color-3 {
+    stroke: var(--primary-color-3);
+}
+
+main.top-banner > div.icon > svg:nth-of-type(1) {
+    display: inherit;
+    width: clamp(320px, 35vw, 640px);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+main.top-banner > div.title {
+    grid-area: title;
+    font-family: 'Lexend', sans-serif;
+    font-size: 4rem;
+    font-weight: bolder;
+
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-end;
+
+    animation: showTopBannerElement 2s ease-out 0s 1;
+}
+
+main.top-banner > div.subtext {
+    grid-area: subtext;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    animation: showTopBannerElement 2s ease-out 0.5s 1, hideElement 0.5s linear 0s 1;
+}
+
+@keyframes animateTopBannerSeeMore {
+    0% {
+        position: relative;
+        bottom: 0px;
+    }
+
+    50% {
+        position: relative;
+        bottom: 20px;
+    }
+    
+    100% {
+        position: relative;
+        bottom: 0px;
+    }
+}
+
+main.top-banner > div.see-more {
+    grid-area: see-more;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+main.top-banner > div.see-more > p {
+    position: relative;
+    bottom: 0px;
+    animation: animateTopBannerSeeMore 2s ease-in-out 0s infinite, showTopBannerElementNoMove 2s ease-out 3s 1, hideElement 3s linear 0s 1;
+}
+
+/*h1*/
+main.h1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Lexend', sans-serif;
+    font-size: 2rem;
+
+    padding: 20px;
+    font-weight: bolder;
+}
+
+/*Project Cards*/
+main.projects {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    grid-template-rows: repeat(auto-fit, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+
+    place-items: stretch center;
+}
+
+/* Cards */
+main.projects > div.card {
+    display: grid;
+    grid-template-areas: 
+    "icon title"
+    "description description"
+    ;
+    
+    grid-template-rows: 1fr 3fr;
+    grid-template-columns: 1fr 3fr;
+
+    background-color: var(--card-color-1);
+    color: var(--card-text-color-1);
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 10px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: var(--card-border-color-1);
+    min-width: 240px;
+    min-height: 240px;
+    padding: 10px;
+}
+
+main.projects > div.border-dashed {
+    border-style: dashed;
+}
+
+main.projects > div.border-dotted {
+    border-style: dotted;
+}
+
+main.projects > div.border-double {
+    border-style: double;
+}
+
+main.projects > div.border-groove {
+    border-style: groove;
+}
+
+main.projects > div.color-2 {
+    background-color: var(--card-color-2);
+    color: var(--card-text-color-2);
+    border-color: var(--card-border-color-2);
+}
+
+main.projects > div.color-3 {
+    background-color: var(--card-color-3);
+    color: var(--card-text-color-3);
+    border-color: var(--card-border-color-3);
+}
+
+main.projects > div.card > div.card-icon {
+    padding: 0px;
+
+    grid-area: icon;
+}
+
+main.projects > div.card > div.card-icon > img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+}
+
+main.projects > div.card > div.card-icon > svg {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+}
+
+main.projects > div.card > div.card-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 2rem;
+    font-weight: bolder;
+    font-family: 'Lexend', sans-serif;
+    
+    padding: 5px;
+
+    grid-area: title;
+}
+
+main.projects > div.card > div.card-description {
+    font-size: 1rem;
+    padding: 5px;
+
+    grid-area: description;
+}
+
+main.projects > div.card > div.card-description > a {
+    color: var(--card-link-text-color);
+    text-decoration: none;
+    display: inline;
+}
+
+/*Cards for Large Screens*/
+@media all and (min-width: 800px) {
+    main.projects > div.tall-card {
+        grid-row: span 2 / auto;
+    
+        display: grid;
+        grid-template-areas: 
+        "icon title"
+        "description description"
+        ;
+    
+        grid-template-rows: 1fr 7fr;
+        grid-template-columns: 1fr 3fr;
+    }
+    main.projects > div.wide-card {
+        grid-column: span 2 / auto;
+        display: grid;
+        grid-template-areas: 
+        "icon title"
+        "icon description"
+        ;
+    
+        grid-template-rows: 1fr 3fr;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    main.projects > div.large-card {
+        grid-row: span 2 / auto;
+        grid-column: span 2 / auto;
+        display: grid;
+        grid-template-areas: 
+        "icon title"
+        "description description"
+        ;
+    
+        grid-template-rows: 1fr 3fr;
+        grid-template-columns: 1fr 3fr;
+    }
+}

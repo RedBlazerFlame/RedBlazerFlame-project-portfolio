@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="text-client.js" defer></script>
+    <link rel="stylesheet" href="text-style.css">
+    <title>RedBlazerFlame's Portfolio | Naive Bayes MBTI Text Classifier</title>
+</head>
+
+<body>
+    <main class="window">
+        <div class="navbar">
+            <div data-can-redirect = "true" data-redirect-url = "/" data-redirect-target = "_blank" class="clickable">
+                Return To Home
+            </div>
+        </div>
+
+        <div class="description inverted">
+            <h1>About This Program</h1>
+            <p>
+                This program attempts to find your MBTI type given some input text. It uses the <a target = "_blank" href = "https://youtu.be/O2L2Uv9pdDA">Naive Bayes algorithm</a> to classify
+            your MBTI type. The training data was taken from <a target="_blank"
+                href="https://www.kaggle.com/datasnaek/mbti-type">https://www.kaggle.com/datasnaek/mbti-type</a>. <br> <br>
+            
+            This test attempts to type you using the <b>Cognitive Functions</b> and not by the four-letter dichotomies. <br> <br>
+
+            Please note that even if this test uses the cognitive functions, it is not a very accurate test, and there are more aspects to personality type than just writing style. In order to find out your type, I recommend reading about the Cognitive Functions or watching
+            educational Psychology videos online (Cognitive Personality Theory on YouTube.com is a great
+            resource for this: <a target="_blank"
+                href="https://www.youtube.com/channel/UCffhmXCZEpPFAUO_IbghGmg">https://www.youtube.com/channel/UCffhmXCZEpPFAUO_IbghGmg</a>). <br> <br>
+
+            Also, do note that your browser will need to process some data before it could classify your text, so it may take a while for it to load (around 10 seconds). However, after it has processed the data, you will be able to send as many text inputs as you wish (until you reload the tab, in which case the browser will re-process the data). <br> <br>
+
+            Oh, and if you're curious, copying and pasting this text will result in INTP (With a confidence of around 18 - 20%). I actually think this is rather accurate, as INTP is one of the types I suspect I am (along with ENTP, INTJ, and INFJ).
+            </p>
+        </div>
+
+        <div class="input-area">
+            <label for="text-input">Input Some Text</label><br>
+
+            <textarea placeholder="Input Text Here..." name="text-input" id="text-input" cols="30" rows="10"></textarea><br>
+
+            <button class="classify-text-button">Loading</button>
+        </div>
+
+        <div class="results">
+            <p class = "most-likely-type">
+                This text was probably written by an <b id = "most-likely-type-code">????</b>, (<span id = "most-likely-type-code-confidence">??.?????????</span>% confidence)
+            </p>
+
+            <p class = "results-label">Cognitive Function Usage</p>
+
+            <div class = "function-probabilities">
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">NE</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">12.5%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">NI</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">12.5%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">SE</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">12.5%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">SI</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">12.5%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">FE</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">12.5%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">FI</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">12.5%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">TE</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">12.5%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">TI</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">12.5%</span>
+                </div>
+            </div>
+
+            <p class = "results-label">Type Probabilities</p>
+            <div class = "type-probabilities">
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">ISFJ</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">ISFP</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">ISTJ</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">ISTP</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">INFJ</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">INFP</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">INTJ</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">INTP</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">ESFJ</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">ESFP</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">ESTJ</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">ESTP</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">ENFJ</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">ENFP</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">ENTJ</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+                <div class = "progress-bar">
+                    <span class = "progress-bar-label">ENTP</span><progress value = "12.5" max = "100"></progress><span class = "progress-bar-value">6.25%</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+
+</html>

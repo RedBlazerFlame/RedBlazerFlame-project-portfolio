@@ -1,0 +1,218 @@
+@import url("/root/text-base.css");
+
+a {
+    text-decoration: none;
+    display: inline;
+    color: var(--anchor-text-color);
+}
+
+.inverted {
+    background-color: var(--background-color-secondary);
+    color: var(--secondary-text-color);
+}
+
+main.window {
+    display: grid;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    grid-template-rows: 1fr 5fr 8fr 25fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "navbar"
+    "description"
+    "input-area"
+    "results"
+    ;
+}
+
+main.window > div.navbar {
+    display: grid;
+    grid-area: navbar;
+    grid-template-columns: repeat(auto-fill, 1fr);
+    grid-template-rows: 1fr;
+    
+    background-color: var(--background-color-secondary);
+}
+
+main.window > div.description {
+    grid-area: description;
+    padding: 5px;
+}
+
+main.window > div.input-area {
+    grid-area: input-area;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main.window > div.results {
+    grid-area: results;
+    padding: 5px;
+}
+
+div.navbar > div {
+    background-color: var(--navbar-cell-background-color);
+    color: var(--navbar-cell-color);
+    height: minmax(20px, 5vh);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+div.navbar > div:hover {
+    background-color: var(--navbar-cell-hover-background-color);
+    color: var(--navbar-cell-hover-color);
+}
+
+/*Input Area*/
+div.input-area > label {
+    font-family: 'Lexend', sans-serif;
+    font-size: 2rem;
+    font-weight: bolder;
+    text-align: center;
+    width: 100%;
+}
+
+div.input-area > textarea#text-input {
+    resize: none;
+    align-self: stretch;
+    outline: none;
+    border-radius: 10px;
+    border-width: 3px;
+    border-style: solid;
+    background-color: var(--card-color-1);
+    color: var(--card-text-color-1);
+    border-color: var(--card-border-color-1);
+    padding: 1rem;
+    height: clamp(60px, 20vw, 500px);
+    font-family: 'Montserrat', sans-serif;
+
+    transition: background-color 0.5s linear 0s, color 0.5s linear 0s, border-color 0.5s linear 0s;
+}
+
+div.input-area > textarea#text-input:focus {
+    background-color: var(--card-color-2);
+    color: var(--card-text-color-2);
+    border-color: var(--card-border-color-2);
+}
+
+div.input-area > button.classify-text-button {
+    border-radius: 10px;
+    border-width: 3px;
+    border-style: solid;
+    background-color: var(--card-color-1);
+    color: var(--card-text-color-1);
+    border-color: var(--card-border-color-1);
+    padding: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+div.input-area > button.classify-text-button:hover {
+    background-color: var(--card-color-3);
+    color: var(--card-text-color-3);
+    border-color: var(--card-border-color-3);
+}
+
+div.input-area > button.classify-text-button:focus {
+    border-color: var(--card-color-3);
+    color: var(--card-text-color-3);
+    background-color: var(--card-border-color-3);
+}
+
+/* Results Area */
+div.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+div.results > p.most-likely-type { 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+div.results > p.most-likely-type > b#most-likely-type-code {
+    color: var(--primary-color-1);
+}
+
+div.results > p.results-label { 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+div.results > div.function-probabilities, div.results > div.type-probabilities {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+div.progress-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 75%;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+div.progress-bar > progress {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 65%;
+    height: 2vh;
+}
+
+div.progress-bar > progress::-webkit-progress-bar {
+    background-color: var(--card-color-1);
+    border-style: solid;
+    border-radius: 1vh;
+    border-width: 1.5px;
+    border-color: var(--card-border-color-1);
+}
+
+div.progress-bar > progress::-webkit-progress-value {
+    border-radius: 1vh;
+    background-size: cover;
+    background: linear-gradient(to right, var(--primary-color-2) 0vw, var(--primary-color-3) 15vw, var(--primary-color-1) 100vw);
+}
+
+div.progress-bar > progress::-o-progress-bar {
+    background-color: var(--card-color-1);
+    border-style: solid;
+    border-radius: 1vh;
+    border-width: 1.5px;
+    border-color: var(--card-border-color-1);
+}
+
+div.progress-bar > progress::-o-progress-value {
+    border-radius: 1vh;
+    background-size: cover;
+    background: linear-gradient(to right, var(--primary-color-2) 0vw, var(--primary-color-3) 15vw, var(--primary-color-1) 100vw);
+}
+
+div.progress-bar > progress::-moz-progress-bar {
+    background-color: var(--card-color-1);
+    border-style: solid;
+    border-radius: 1vh;
+    border-width: 1.5px;
+    border-color: var(--card-border-color-1);
+}
+
+div.progress-bar > progress::-moz-progress-value {
+    border-radius: 1vh;
+    background-size: cover;
+    background: linear-gradient(to right, var(--primary-color-2) 0vw, var(--primary-color-3) 15vw, var(--primary-color-1) 100vw);
+}
