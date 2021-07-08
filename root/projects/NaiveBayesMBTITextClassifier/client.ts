@@ -71,11 +71,11 @@ redirectableElements.forEach((redirectableElement: HTMLElement): void => {
 (async function main() {
     // Declaring Constants and Variables
 const ALPHA = 1;
-const SEGREGATED_DATA_DIRECTORY: string = "./application-segregatedMBTIData.json";
+const SEGREGATED_DATA_DIRECTORY: string = "https://redblazerflame.github.io/my-projects-public-api/api/redblazerflames-project-portfolio/naive-bayes-testing/segregatedMBTIData.json";
 const WORD_FREQUENCY_BY_MBTI_TYPE_DIRECTORY: string =
-    "./application-wordFrequencyByMBTITypeNormalized.json";
+    "https://redblazerflame.github.io/my-projects-public-api/api/redblazerflames-project-portfolio/naive-bayes-testing/wordFrequencyByMBTITypeNormalized.json";
 const WORD_FREQUENCY_BY_COGNITIVE_FUNCTION_DIRECTORY: string =
-    "./application-wordFrequencyByCognitiveFunctionNormalized.json";
+    "https://redblazerflame.github.io/my-projects-public-api/api/redblazerflames-project-portfolio/naive-bayes-testing/wordFrequencyByCognitiveFunctionNormalized.json";
 type MBTIType = `${"I" | "E"}${"S" | "N"}${"F" | "T"}${"J" | "P"}`;
 type CognitiveFunction = `${"F" | "T" | "N" | "S"}${"I" | "E"}`;
 type DataEntry = { type: MBTIType; posts: Array<Array<string>> };
@@ -262,7 +262,6 @@ const WORD_LAST_SLICE_INDEX = 0;
 const SEGREGATED_MBTI_DATA: Map<MBTIType, Array<string>> = new Map(
     await fetch(SEGREGATED_DATA_DIRECTORY, {
         headers : { 
-          'Content-Type': 'application/json',
           'Accept': 'application/json'
          }
       }).then(res => res.json())
@@ -282,7 +281,6 @@ const MBTI_TYPE_PROBABILITIES: Map<MBTIType, number> = new Map(
 const RAW_WORD_FREQUENCY_BY_COGNITIVE_FUNCTION_DATA = JSON.parse(
     await fetch(WORD_FREQUENCY_BY_COGNITIVE_FUNCTION_DIRECTORY, {
         headers : { 
-          'Content-Type': 'application/json',
           'Accept': 'application/json'
          }
       }).then(res => res.text())
@@ -303,7 +301,6 @@ const WORD_FREQUENCY_BY_COGNITIVE_FUNCTION_DATA: Map<string, WordEntryCognitiveD
 const WORD_FREQUENCY_BY_MBTI_TYPE_DATA: Map<string, WordEntryMBTIData> = new Map(
         (await fetch(WORD_FREQUENCY_BY_MBTI_TYPE_DIRECTORY, {
             headers : { 
-              'Content-Type': 'application/json',
               'Accept': 'application/json'
              }
           })

@@ -4,6 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import http from "http";
 import { readFile } from "fs";
+import cors from "cors";
 
 // Declaring Constants
 const PORT = process.env.PORT || 8080;
@@ -18,6 +19,8 @@ const app: Express = express();
 const httpServer: http.Server = http.createServer(app);
 
 // Setting up the Express server
+app.use(cors({origin: 'http://127.0.0.1:8000'}));
+
 app.get("/", (req: Request, res: Response) => {
     res.sendFile(`root/index.html`, { ...FILE_READ_OPTIONS, "content-type": "text/html" });
 })

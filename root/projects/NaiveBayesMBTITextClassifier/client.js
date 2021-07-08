@@ -54,9 +54,9 @@ redirectableElements.forEach((redirectableElement) => {
     return __awaiter(this, void 0, void 0, function* () {
         // Declaring Constants and Variables
         const ALPHA = 1;
-        const SEGREGATED_DATA_DIRECTORY = "./application-segregatedMBTIData.json";
-        const WORD_FREQUENCY_BY_MBTI_TYPE_DIRECTORY = "./application-wordFrequencyByMBTITypeNormalized.json";
-        const WORD_FREQUENCY_BY_COGNITIVE_FUNCTION_DIRECTORY = "./application-wordFrequencyByCognitiveFunctionNormalized.json";
+        const SEGREGATED_DATA_DIRECTORY = "https://redblazerflame.github.io/my-projects-public-api/api/redblazerflames-project-portfolio/naive-bayes-testing/segregatedMBTIData.json";
+        const WORD_FREQUENCY_BY_MBTI_TYPE_DIRECTORY = "https://redblazerflame.github.io/my-projects-public-api/api/redblazerflames-project-portfolio/naive-bayes-testing/wordFrequencyByMBTITypeNormalized.json";
+        const WORD_FREQUENCY_BY_COGNITIVE_FUNCTION_DIRECTORY = "https://redblazerflame.github.io/my-projects-public-api/api/redblazerflames-project-portfolio/naive-bayes-testing/wordFrequencyByCognitiveFunctionNormalized.json";
         const EPSILON = Math.pow(10, -8);
         const MBTI_TO_NUMBER_MAP = new Map([
             ["ISFJ", 0],
@@ -228,7 +228,6 @@ redirectableElements.forEach((redirectableElement) => {
         const WORD_LAST_SLICE_INDEX = 0;
         const SEGREGATED_MBTI_DATA = new Map(yield fetch(SEGREGATED_DATA_DIRECTORY, {
             headers: {
-                'Content-Type': 'application/json',
                 'Accept': 'application/json'
             }
         }).then(res => res.json()));
@@ -239,7 +238,6 @@ redirectableElements.forEach((redirectableElement) => {
         ]));
         const RAW_WORD_FREQUENCY_BY_COGNITIVE_FUNCTION_DATA = JSON.parse(yield fetch(WORD_FREQUENCY_BY_COGNITIVE_FUNCTION_DIRECTORY, {
             headers: {
-                'Content-Type': 'application/json',
                 'Accept': 'application/json'
             }
         }).then(res => res.text()));
@@ -256,7 +254,6 @@ redirectableElements.forEach((redirectableElement) => {
             .slice(WORD_SLICE_INDEX, RAW_WORD_FREQUENCY_BY_COGNITIVE_FUNCTION_DATA.length - WORD_LAST_SLICE_INDEX));
         const WORD_FREQUENCY_BY_MBTI_TYPE_DATA = new Map((yield fetch(WORD_FREQUENCY_BY_MBTI_TYPE_DIRECTORY, {
             headers: {
-                'Content-Type': 'application/json',
                 'Accept': 'application/json'
             }
         })
