@@ -1,2 +1,1 @@
-env: standard
-runtime: nodejs
+runtime: nodejs14
