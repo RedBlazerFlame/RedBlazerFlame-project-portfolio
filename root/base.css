@@ -28,7 +28,12 @@
     --navbar-cell-color: #000000;
     --navbar-cell-hover-background-color: var(--primary-color-1);
     --navbar-cell-hover-color: var(--card-text-color-1);
-    font-size: clamp(12px, 1vw, 32px);
+
+    --button-runnable-color1: rgb(0, 255, 13);
+    --button-runnable-color2: rgb(101, 255, 108);
+    --button-unrunnable-color1: rgb(255, 0, 0);
+    --button-unrunnable-color2: rgb(255, 70, 70);
+    font-size: clamp(10px, 1vw, 32px);
 }
 
 body, html {

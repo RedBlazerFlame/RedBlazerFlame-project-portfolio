@@ -15,6 +15,48 @@ main.window > main.inverted {
     color: var(--secondary-text-color);
 }
 
+/*Hoverable item*/
+.hoverable-item { 
+    position: relative;
+    transition: bottom 0.5s ease-in-out 0s, right 0.5s ease-in-out 0s, box-shadow 0.5s ease-in-out 0s;
+    bottom: 0px;
+    right: 0px;
+}
+
+.hoverable-item:hover {
+    bottom: 20px;
+    right: 20px;
+}
+
+.hoverable-item-text-shadowed { 
+    position: relative;
+    transition: bottom 0.5s ease-in-out 0s, right 0.5s ease-in-out 0s, text-shadow 0.5s ease-in-out 0s;
+    bottom: 0px;
+    right: 0px;
+    text-shadow: 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.hoverable-item-text-shadowed:hover {
+    bottom: 20px;
+    right: 20px;
+    text-shadow: 20px 20px rgba(0, 0, 0, 0.5);
+}
+
+.hoverable-item-box-shadowed { 
+    position: relative;
+    transition: bottom 0.5s ease-in-out 0s, right 0.5s ease-in-out 0s, box-shadow 0.5s ease-in-out 0s;
+    bottom: 0px;
+    right: 0px;
+    box-shadow: 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.hoverable-item-box-shadowed:hover {
+    bottom: 20px;
+    right: 20px;
+    box-shadow: 20px 20px rgba(0, 0, 0, 0.5);
+}
+
+
 /*Cropped Images*/
 img.cropped-circle {
     clip-path: circle(50%);
@@ -35,15 +77,74 @@ main.text-box {
 
 main.info-box-left {
     grid-template-areas:
-    "icon title"
-    "icon content"
+    "icon"
+    "title"
+    "content"
     ;
 
-    grid-template-rows: 1fr 3fr;
-    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 3fr 1fr 5fr;
 
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+main.info-box-left > div.title {
+    grid-area: title;
+
+    font-family: 'Lexend', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main.info-box-left > div.content {
+    grid-area: content;
+    gap: 10px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+
+    text-align: center;
+}
+
+@media all and (min-width: 800px) {
+    main.info-box-left {
+        grid-template-areas:
+        "icon title"
+        "icon content"
+        ;
+        gap: 40px;
+    
+        grid-template-rows: 1fr 3fr;
+        grid-template-columns: 1fr 3fr;
+    
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    main.info-box-left > div.title {
+        grid-area: title;
+    
+        font-family: 'Lexend', sans-serif;
+        font-weight: bold;
+        font-size: 2rem;
+        text-align: left;
+    }
+    
+    main.info-box-left > div.content {
+        grid-area: content;
+    
+        font-family: 'Montserrat', sans-serif;
+        font-weight: normal;
+        font-size: 1rem;
+    
+        text-align: left;
+    }
 }
 
 main.image-list {
@@ -70,22 +171,6 @@ main.info-box-left > div.icon {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-main.info-box-left > div.title {
-    grid-area: title;
-
-    font-family: 'Lexend', sans-serif;
-    font-weight: bold;
-    font-size: 2rem;
-}
-
-main.info-box-left > div.content {
-    grid-area: content;
-
-    font-family: 'Montserrat', sans-serif;
-    font-weight: normal;
-    font-size: 1rem;
 }
 
 /*Top Banner*/
@@ -125,6 +210,7 @@ main.top-banner {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, calc(50% + var(--top-banner-caret-size)) 100%, 50% calc(100% - var(--top-banner-caret-size)), calc(50% - var(--top-banner-caret-size)) 100%, 0% 100%, 0% 0%);
     animation: showTopBannerArrow 3s linear 0s 1;
 }
+
 @media all and (min-width: 800px) {
     main.top-banner {
         display: grid;
@@ -148,6 +234,26 @@ main.top-banner {
         clip-path: polygon(0% 0%, 100% 0%, 100% 100%, calc(50% + var(--top-banner-caret-size)) 100%, 50% calc(100% - var(--top-banner-caret-size)), calc(50% - var(--top-banner-caret-size)) 100%, 0% 100%, 0% 0%);
         animation: showTopBannerArrow 6s ease-out 0s 1;
     }
+}
+
+/*Since the animation above moves everything below it, we will compensate for it by adding a padding top property to the about me section*/
+@keyframes aboutMeCompensateForTopBannerMovement {
+    0% {
+        padding-top: 0;
+    }
+
+    50% {
+        padding-top: 0;
+    }
+
+    100% {
+        padding-top: var(--top-banner-caret-size);
+    }
+}
+
+body > main.window > main#about-me-section {
+    padding-top: var(--top-banner-caret-size);
+    animation: aboutMeCompensateForTopBannerMovement 6s ease-out 0s 1;
 }
 
 main.top-banner > div {
@@ -340,9 +446,10 @@ main.projects > div.card {
     grid-template-areas: 
     "icon title"
     "description description"
+    "run-button run-button"
     ;
     
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: 1fr 3fr 1fr;
     grid-template-columns: 1fr 3fr;
 
     background-color: var(--card-color-1);
@@ -431,6 +538,128 @@ main.projects > div.card > div.card-description > a {
     display: inline;
 }
 
+main.projects > div.card > div.card-runnable-button {
+    font-size: 2rem;
+    padding: 1rem 2rem 1rem 2rem;
+
+    grid-area: run-button;
+
+    width: auto;
+    height: 5rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    place-self: center center;
+
+    border-radius: 10px;
+
+    background: linear-gradient(90deg, var(--button-runnable-color1), var(--button-runnable-color2));
+}
+
+@keyframes animateRunnableButtonIcon {
+    0% {
+        position: relative;
+        right: 0px;
+    }
+
+    25% {
+        position: relative;
+        right: 0.75rem;
+    }
+
+    75% {
+        position: relative;
+        right: -0.75rem;
+    }
+
+    100% {
+        position: relative;
+        right: 0px;
+    }
+}
+
+main.projects > div.card > div.card-runnable-button::before {
+    content: "▶";
+    white-space: pre;
+    margin-right: 1.5rem;
+    position: relative;
+    right: 0px;
+}
+
+main.projects > div.card > div.card-runnable-button:hover::before {
+    animation: animateRunnableButtonIcon 0.5s ease-in-out 0s 1;
+}
+
+main.projects > div.card > div.card-unrunnable-button {
+    font-size: 2rem;
+    padding: 1rem 2rem 1rem 2rem;
+
+    grid-area: run-button;
+
+    width: auto;
+    height: 5rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    place-self: center center;
+
+    border-radius: 10px;
+
+    background: linear-gradient(90deg, var(--button-unrunnable-color1), var(--button-unrunnable-color2));
+}
+
+@keyframes animateUnrunnableButtonIcon {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.5) rotateZ(0deg);
+    }
+
+    35% {
+        transform: scale(1.5) rotateZ(20deg);
+    }
+
+    45% {
+        transform: scale(1.5) rotateZ(-20deg);
+    }
+
+    55% {
+        transform: scale(1.5) rotateZ(20deg);
+    }
+
+    65% {
+        transform: scale(1.5) rotateZ(-20deg);
+    }
+
+    75% {
+        transform: scale(1.5) rotateZ(0deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+main.projects > div.card > div.card-unrunnable-button::before {
+    content: "✖";
+    margin-right: 1.5rem;
+    white-space: pre;
+}
+
+main.projects > div.card > div.card-unrunnable-button:hover::before {
+    animation: animateUnrunnableButtonIcon 0.5s ease-in-out 0s 1;
+}
+
 /*Cards for Large Screens*/
 @media all and (min-width: 800px) {
     main.projects > div.tall-card {
@@ -440,9 +669,10 @@ main.projects > div.card > div.card-description > a {
         grid-template-areas: 
         "icon title"
         "description description"
+        "run-button run-button"
         ;
     
-        grid-template-rows: 1fr 7fr;
+        grid-template-rows: 1fr 7fr 1fr;
         grid-template-columns: 1fr 3fr;
     }
     main.projects > div.wide-card {
@@ -451,9 +681,10 @@ main.projects > div.card > div.card-description > a {
         grid-template-areas: 
         "icon title"
         "icon description"
+        "icon run-button"
         ;
     
-        grid-template-rows: 1fr 3fr;
+        grid-template-rows: 1fr 3fr 1fr;
         grid-template-columns: 1fr 1fr;
     }
     
@@ -464,9 +695,10 @@ main.projects > div.card > div.card-description > a {
         grid-template-areas: 
         "icon title"
         "description description"
+        "run-button run-button"
         ;
     
-        grid-template-rows: 1fr 3fr;
+        grid-template-rows: 1fr 3fr 1fr;
         grid-template-columns: 1fr 3fr;
     }
 }

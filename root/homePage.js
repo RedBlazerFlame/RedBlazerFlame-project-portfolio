@@ -8,15 +8,15 @@ const redirectableElements = [...document.querySelectorAll("div[data-can-redirec
 // Heartwarming Console Logs ❤
 console.log("%c🌈 Welcome to the Home Page!", "background-color: black; color: white; padding: 10px; border-radius: 5px; font-size: 10px; font-family: 'Arial'; font-weight: bold;");
 // Redirect User to the top
-document.documentElement.scrollTop = 0;
-states.topRedirectInterval = 0;
+/*document.documentElement.scrollTop = 0;
+states.topRedirectInterval = 0
 let topRedirectInterval = setInterval(() => {
     document.documentElement.scrollTop = 0;
-    states.topRedirectInterval++;
-    if (states.topRedirectInterval > 200) {
+    states.topRedirectInterval ++;
+    if(states.topRedirectInterval > 200) {
         clearInterval(topRedirectInterval);
     }
-}, 1);
+}, 1)*/
 // Animating the top-banner icon
 states.topBannerIcon = 0;
 setInterval(() => {

@@ -204,16 +204,16 @@
                         stroke-linecap="round" />
                 </svg>
             </div>
-            <div class="title">RedBlazerFlame's Portfolio</div>
-            <div class="subtext">Where Code Ideas Come to Life</div>
+            <div class="title">RedBlazerFlame's Codes</div>
+            <div class="subtext">A Full-stack Developer's Programming Projects</div>
             <div class="see-more">
                 <p>Scroll down to see more</p>
             </div>
         </main>
 
-        <main class="text-box info-box-left">
-            <div class="icon">
-                <img src="/root/image-blurpifiedNormanCropped1.png" width = "200" alt="My Profile Picture" class="cropped-circle">
+        <main id = "about-me-section" class="text-box info-box-left">
+            <div class="icon hoverable-item">
+                <img src="/root/image-blurpifiedNormanCropped1.png" width = "300" alt="My Profile Picture" class="cropped-circle">
             </div>
             <div class="title">About Me</div>
             <div class="content" style="font-size: 1.5rem;">
@@ -230,7 +230,7 @@
             Skills
         </main>
         <main class="text-box image-list inverted">
-            <div class="image">
+            <div class="image hoverable-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="206" height="200" viewBox="0 0 206 200" fill="none">
                     <rect width="200" height="200" rx="30" fill="#FFE600" />
                     <path
@@ -239,7 +239,7 @@
                 </svg>
             </div>
 
-            <div class="image">
+            <div class="image hoverable-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" fill="none">
                     <rect width="200" height="200" rx="30" fill="#007ABF" />
                     <path
@@ -248,7 +248,7 @@
                 </svg>
             </div>
 
-            <div class="image">
+            <div class="image hoverable-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="216" height="200" viewBox="0 0 216 200" fill="none">
                     <circle cx="108" cy="100" r="100" fill="#FF5C00" />
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -259,7 +259,7 @@
                 </svg>
             </div>
 
-            <div class="image">
+            <div class="image hoverable-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="155" height="200" viewBox="0 0 155 200" fill="none">
                     <path
                         d="M21.2233 125.714H34.3736V122.15C34.3736 108.343 45.5665 97.1503 59.3736 97.1503H89.3736C103.181 97.1503 114.374 85.9604 114.374 72.1533V30.8646C114.374 7.55027 95.326 0.578831 85.8022 0.0073997C83.5165 0.197876 74.1451 0.464543 54.945 0.0073997C35.745 -0.449743 30.5641 20.3884 30.3736 30.8646C34.5641 31.2455 47.3788 30.8646 65.2308 30.8646C74.8372 30.8646 80.0617 30.8646 82.8385 35.4056C90.0416 47.1849 76.8115 60.2327 63.0044 60.2067C55.3478 60.1923 45.8195 60.136 34.3737 60.0074C-6.31206 59.5503 0.659325 93.7217 0.659337 105.15C0.65934 116.507 9.86615 125.714 21.2233 125.714Z"
@@ -278,14 +278,50 @@
             Projects
         </main>
 
-        <main class="text-box">
-            <h1>Tip!</h1>
-            <p>Click the icon to run the program!</p>
-        </main>
-
         <main class="projects">
             <div class="card">
-                <div data-can-redirect = "true" data-redirect-url = "./root/projects/NaiveBayesMBTITextClassifier/text-index.html" data-redirect-target = "_blank" class="card-icon">
+                <div data-can-redirect = "true" data-redirect-url = "http://would-you-rather-html5.herokuapp.com/" data-redirect-target = "_blank" class="card-icon hoverable-item">
+                    <img class = "cropped-circle" src = "/root/image-wouldYouRatherIcon1.png">
+                </div>
+                <div data-can-redirect = "true" data-redirect-url = "http://would-you-rather-html5.herokuapp.com/" data-redirect-target = "_blank" class="card-title hoverable-item-text-shadowed">
+                    <span>Would You Rather (NodeJS)</span>
+                </div>
+                <div class="card-description">
+                    This program is an online multiplayer game based on the popular party game known as "Would You Rather". It was inspired from Roblox would you rather games. It features many different themes, rooms (via room codes), and more!
+                    <br><br>
+
+                    GitHub Source Code: <a target = "_blank" href = "https://github.com/RedBlazerFlame/would-you-rather">https://github.com/RedBlazerFlame/would-you-rather</a>
+                </div>
+
+                <div data-can-redirect="true" data-redirect-url="http://would-you-rather-html5.herokuapp.com/" data-redirect-target="_blank" class="card-runnable-button">
+                    <span>
+                        Run
+                    </span>
+                </div>
+            </div>
+
+            <div class="card wide-card">
+                <div data-can-redirect = "true" data-redirect-url = "http://planks-and-flanks.herokuapp.com/" data-redirect-target = "_blank" class="card-icon hoverable-item">
+                    <img src = "/root/image-planksAndFlanksLogo1.png">
+                </div>
+                <div data-can-redirect = "true" data-redirect-url = "http://planks-and-flanks.herokuapp.com/" data-redirect-target = "_blank" class="card-title hoverable-item-text-shadowed">
+                    <span>Planks and Flanks</span>
+                </div>
+                <div class="card-description">
+                    This program is an online multiplayer game based on "Fortnite". It is a turn-based strategy game where you have to survive on a deserted island and be the last man standing.
+                    <br><br>
+
+                    This project uses Node.js + socket.io on the back-end to allow the players to interact in real time and HTML + CSS + JS on the front-end to make the game look neat. The art was designed using <a target = "_blank" href = "https://canva.com/">Canva</a>.
+                </div>
+
+                <div data-can-redirect="true" data-redirect-url="http://planks-and-flanks.herokuapp.com/" data-redirect-target="_blank" class="card-runnable-button">
+                    <span>
+                        Run
+                    </span>
+                </div>
+            </div>
+            <div class="card large-card">
+                <div data-can-redirect = "true" data-redirect-url = "./root/projects/NaiveBayesMBTITextClassifier/text-index.html" data-redirect-target = "_blank" class="card-icon hoverable-item">
                     <svg xmlns="http://www.w3.org/2000/svg" width="241" height="241" viewBox="0 0 241 241" fill="none">
                         <path d="M27 25.5H128.005" class="stroke-color-2" stroke-width="10" stroke-linecap="round" />
                         <path d="M27 44.5H93" class="stroke-color-2" stroke-width="10" stroke-linecap="round" />
@@ -303,7 +339,7 @@
                             class="stroke-color-l1" stroke-width="10" />
                     </svg>
                 </div>
-                <div data-can-redirect = "true" data-redirect-url = "./root/projects/NaiveBayesMBTITextClassifier/text-index.html" data-redirect-target = "_blank" class="card-title">
+                <div data-can-redirect = "true" data-redirect-url = "./root/projects/NaiveBayesMBTITextClassifier/text-index.html" data-redirect-target = "_blank" class="card-title hoverable-item-text-shadowed">
                     Naive Bayes MBTI Text Classifier
                 </div>
                 <div class="card-description">
@@ -318,8 +354,16 @@
             resource for this: <a target="_blank"
                 href="https://www.youtube.com/channel/UCffhmXCZEpPFAUO_IbghGmg">https://www.youtube.com/channel/UCffhmXCZEpPFAUO_IbghGmg</a>).
                 </div>
+
+                <div data-can-redirect="true" data-redirect-url="./root/projects/NaiveBayesMBTITextClassifier/text-index.html" data-redirect-target="_blank" class="card-runnable-button">
+                    <span>
+                        Run
+                    </span>
+                </div>
             </div>
+
         </main>
+    </main>
     </main>
 </body>
 
