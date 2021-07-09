@@ -462,6 +462,10 @@ main.projects > div.card {
     min-width: 240px;
     min-height: 240px;
     padding: 10px;
+
+    word-wrap: break-word;
+    resize: none;
+    max-width: 100%;
 }
 
 main.projects > div.border-dashed {
@@ -699,6 +703,6 @@ main.projects > div.card > div.card-unrunnable-button:hover::before {
         ;
     
         grid-template-rows: 1fr 3fr 1fr;
-        grid-template-columns: 1fr 3fr;
+        grid-template-columns: 1fr 1fr;
     }
 }

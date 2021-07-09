@@ -16,13 +16,13 @@ main.window {
     gap: 0;
     padding: 0;
     margin: 0;
-    grid-template-rows: 1fr 5fr 8fr 25fr;
+    grid-template-rows: 1fr 8fr 25fr 5fr;
     grid-template-columns: 1fr;
     grid-template-areas: 
     "navbar"
-    "description"
     "input-area"
     "results"
+    "description"
     ;
 }
 

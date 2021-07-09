@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import http from "http";
 import { readFile } from "fs";
 import cors from "cors";
+import {generateNewAnimeCharacter} from "./scripts/generateAnimeCharacter.js";
 
 // Declaring Constants
 const PORT = process.env.PORT || 8080;
@@ -15,7 +16,7 @@ const FILE_READ_OPTIONS = {
 };
 
 // Creating Express server
-const app: Express = express();
+const app = express();
 const httpServer: http.Server = http.createServer(app);
 
 // Setting up the Express server
@@ -23,6 +24,11 @@ app.use(cors({origin: 'http://127.0.0.1:8000'}));
 
 app.get("/", (req: Request, res: Response) => {
     res.sendFile(`root/index.html`, { ...FILE_READ_OPTIONS, "content-type": "text/html" });
+});
+
+app.get("/api/animeFaceGenerator", async(_: Request, res: Response) => {
+    console.log(await generateNewAnimeCharacter());
+    res.json(await generateNewAnimeCharacter());
 })
 
 app.get("/root/:fileType-:fileName", (req: Request, res: Response) => {

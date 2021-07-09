@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="text-client.js" defer></script>
+    <link rel="stylesheet" href="text-style.css">
+    <title>RedBlazerFlame's Portfolio | Anime GAN</title>
+</head>
+
+<body>
+    <main class="window">
+        <div class="navbar">
+            <div data-can-redirect = "true" data-redirect-url = "/" data-redirect-target = "_blank" class="clickable">
+                Return To Home
+            </div>
+        </div>
+
+        <div class="description inverted">
+            <h1>About This Program</h1>
+            <p>
+                This program generates new anime characters using <a target = "_blank" href = "https://youtu.be/8L11aMN5KY8">Generative Adversarial Networks</a>, a type of <a target = "_blank" href = "https://openai.com/blog/generative-models/">generative model</a> composed of two <a target = "_blank" href = "https://www.ibm.com/cloud/learn/neural-networks">neural networks</a>: a Generator, and a Discriminator.<br><br>
+
+                    The network was trained on 102 passes of 8000 faces of anime characters obtained from <a target = "_blank" href = "https://www.kaggle.com/splcher/animefacedataset">https://www.kaggle.com/splcher/animefacedataset</a>.<br><br>
+
+                    One of the biggest problems that I found with the outputs is that the images are rather similar to one another. This is a problem known as <a target = "_blank" href = "https://software.intel.com/content/www/us/en/develop/blogs/mode-collapse-in-gans.html"> mode collapse </a>. It is an active area of research in GANs. To fix this problem, I decided to save multiple versions of the model and then pick a random version to generate a random image from. This helped increase the variation in the generated outputs.
+            </p>
+        </div>
+
+        
+
+        <div class="results">
+            <canvas id = "image-canvas" width = "320" height = "320"></canvas>
+        </div>
+
+        <div class="input-area">
+            <button class="generate-character-button">Loading</button>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/RedBlazerFlame/RedBlazerFlame-project-portfolio#readme",
   "dependencies": {
+    "@tensorflow/tfjs": "^3.7.0",
+    "@tensorflow/tfjs-converter": "^3.7.0",
     "cors": "^2.8.5",
     "express": "^4.17.1"
   },

@@ -320,7 +320,30 @@
                     </span>
                 </div>
             </div>
+
             <div class="card large-card">
+                <div data-can-redirect = "true" data-redirect-url = "./root/projects/AnimeCharacterGenerator/text-index.html" data-redirect-target = "_blank" class="card-icon hoverable-item">
+                    <img style="max-width:100%;" src="/root/image-VectorizedGANOutput.jpeg" alt="Icon" class="cropped-circle">
+                </div>
+                <div style = "font-size: 4rem;" data-can-redirect = "true" data-redirect-url = "./root/projects/AnimeCharacterGenerator/text-index.html" data-redirect-target = "_blank" class="card-title hoverable-item-text-shadowed">
+                    Anime GAN
+                </div>
+                <div class="card-description">
+                    This program generates new anime characters using <a target = "_blank" href = "https://youtu.be/8L11aMN5KY8">Generative Adversarial Networks</a>, a type of <a target = "_blank" href = "https://openai.com/blog/generative-models/">generative model</a> composed of two <a target = "_blank" href = "https://www.ibm.com/cloud/learn/neural-networks">neural networks</a>: a Generator, and a Discriminator.<br><br>
+
+                    The network was trained on 102 passes of 8000 faces of anime characters obtained from <a target = "_blank" href = "https://www.kaggle.com/splcher/animefacedataset">https://www.kaggle.com/splcher/animefacedataset</a>.<br><br>
+
+                    One of the biggest problems that I found with the outputs is that the images are rather similar to one another. This is a problem known as <a target = "_blank" href = "https://software.intel.com/content/www/us/en/develop/blogs/mode-collapse-in-gans.html"> mode collapse </a>. It is an active area of research in GANs. To fix this problem, I decided to save multiple versions of the model and then pick a random version to generate a random image from. This helped increase the variation in the generated outputs.
+                </div>
+
+                <div data-can-redirect="true" data-redirect-url="./root/projects/AnimeCharacterGenerator/text-index.html" data-redirect-target="_blank" class="card-runnable-button">
+                    <span>
+                        Run
+                    </span>
+                </div>
+            </div>
+
+            <div class="card tall-card">
                 <div data-can-redirect = "true" data-redirect-url = "./root/projects/NaiveBayesMBTITextClassifier/text-index.html" data-redirect-target = "_blank" class="card-icon hoverable-item">
                     <svg xmlns="http://www.w3.org/2000/svg" width="241" height="241" viewBox="0 0 241 241" fill="none">
                         <path d="M27 25.5H128.005" class="stroke-color-2" stroke-width="10" stroke-linecap="round" />

@@ -1,6 +1,7 @@
 {
     "compileOnSave": true,
     "compilerOptions": {
+        "skipDefaultLibCheck": true,
         "watch": true,
         "strict": false,
         "target": "ES6",

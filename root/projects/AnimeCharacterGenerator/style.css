@@ -1,0 +1,110 @@
+@import url("/root/text-base.css");
+
+a {
+    text-decoration: none;
+    display: inline;
+    color: var(--anchor-text-color);
+}
+
+.inverted {
+    background-color: var(--background-color-secondary);
+    color: var(--secondary-text-color);
+}
+
+main.window {
+    display: grid;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    grid-template-rows: 1fr 5fr 1fr 5fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "navbar"
+    "results"
+    "input-area"
+    "description"
+    ;
+}
+
+main.window > div.navbar {
+    display: grid;
+    grid-area: navbar;
+    grid-template-columns: repeat(auto-fill, 1fr);
+    grid-template-rows: 1fr;
+    
+    background-color: var(--background-color-secondary);
+}
+
+main.window > div.description {
+    grid-area: description;
+    padding: 5px;
+}
+
+main.window > div.input-area {
+    grid-area: input-area;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main.window > div.results {
+    grid-area: results;
+    padding: 5px;
+}
+
+div.navbar > div {
+    background-color: var(--navbar-cell-background-color);
+    color: var(--navbar-cell-color);
+    height: minmax(20px, 5vh);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+div.navbar > div:hover {
+    background-color: var(--navbar-cell-hover-background-color);
+    color: var(--navbar-cell-hover-color);
+}
+
+/*Input Area*/
+div.input-area > button.generate-character-button {
+    border-radius: 10px;
+    border-width: 3px;
+    border-style: solid;
+    background-color: var(--card-color-1);
+    color: var(--card-text-color-1);
+    border-color: var(--card-border-color-1);
+    padding: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+div.input-area > button.generate-character-button:hover {
+    background-color: var(--card-color-3);
+    color: var(--card-text-color-3);
+    border-color: var(--card-border-color-3);
+}
+
+div.input-area > button.generate-character-button:focus {
+    border-color: var(--card-color-3);
+    color: var(--card-text-color-3);
+    background-color: var(--card-border-color-3);
+}
+
+/* Results Area */
+div.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.results > canvas#image-canvas {
+    width: 20rem;
+    height: 20rem;
+    margin: 20px;
+}
