@@ -51,6 +51,8 @@ redirectableElements.forEach((redirectableElement: HTMLElement): void => {
 
             let imageData: Array<number> = Object.values(await fetch("/api/animeFaceGenerator").then(res => res.json())) as Array<number>;
 
+            console.log("Image Data Received");
+
             drawNewImageOnCanvas(ctx, imageData);
 
             generateImageButton.innerText = "Generate Another Character";

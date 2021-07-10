@@ -27,8 +27,8 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.get("/api/animeFaceGenerator", async(_: Request, res: Response) => {
-    console.log(await generateNewAnimeCharacter());
     res.json(await generateNewAnimeCharacter());
+    console.log("Anime Character Generated");
 })
 
 app.get("/root/:fileType-:fileName", (req: Request, res: Response) => {

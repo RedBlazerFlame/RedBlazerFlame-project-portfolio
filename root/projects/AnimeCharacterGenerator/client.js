@@ -48,6 +48,7 @@ redirectableElements.forEach((redirectableElement) => {
                 STATE.generateImageButton = "busy";
                 generateImageButton.innerText = "Generating... Please Wait";
                 let imageData = Object.values(yield fetch("/api/animeFaceGenerator").then(res => res.json()));
+                console.log("Image Data Received");
                 drawNewImageOnCanvas(ctx, imageData);
                 generateImageButton.innerText = "Generate Another Character";
                 STATE.generateImageButton = "free";

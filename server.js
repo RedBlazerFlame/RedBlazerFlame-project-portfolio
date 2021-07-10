@@ -31,8 +31,8 @@ app.get("/", (req, res) => {
     res.sendFile(`root/index.html`, Object.assign(Object.assign({}, FILE_READ_OPTIONS), { "content-type": "text/html" }));
 });
 app.get("/api/animeFaceGenerator", (_, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(yield generateNewAnimeCharacter());
     res.json(yield generateNewAnimeCharacter());
+    console.log("Anime Character Generated");
 }));
 app.get("/root/:fileType-:fileName", (req, res) => {
     let filePath = `root/${req.params.fileName}`;
